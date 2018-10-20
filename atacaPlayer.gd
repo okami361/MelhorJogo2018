@@ -1,17 +1,18 @@
 extends Node2D
 
-var vel = .7
+var vel = 500
 var difX
 var difY
+var segurando = false
 
 onready var pointerManager = get_tree().get_root().find_node("PointerManager", true, false)
 
 func _ready():
-	_calculate_direction()
 	pass
 
 func _process(delta):
-	self.position = self.position + (Vector2(difX*vel*delta, difY*vel*delta))
+	if !segurando:
+		self.position = self.position + (Vector2(difX, difY).normalized() * vel * delta)
 	pass
 
 func _calculate_direction():
@@ -26,11 +27,13 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
     and event.is_pressed():
 		pointerManager.segurando = true
 		pointerManager.objeto = self
+		segurando = true
 		
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and !event.is_pressed():
 		_calculate_direction()
+		segurando = false
 		
 	
 	pass # replace with function body
