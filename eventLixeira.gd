@@ -15,12 +15,12 @@ func _ready():
 #	pass
 
 
+func _on_Lixeira_mouse_entered():
+	get_node("..").emCimaLixeira = true
+	print("entrou")
+	pass # replace with function body
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton \
-	and event.button_index == BUTTON_LEFT \
-    and event.is_pressed():
-		get_node("../../").segurando = true
-		get_node("../../").objeto = self
-	
+
+func _on_Lixeira_mouse_exited():
+	get_node("..").emCimaLixeira = false
 	pass # replace with function body
