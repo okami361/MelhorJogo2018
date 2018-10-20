@@ -3,14 +3,13 @@ extends KinematicBody2D
 const SPEED =  750
 const GRAVITY = 3600
 const UP = Vector2(0,-1)
-const JUMP_SPEED = -1600
+const JUMP_SPEED = -1100
 const KNOCKBACK = -1500
 const JUMP_BOOST = 2
 
 var hurt = false
 
 var motion = Vector2()
-export var world_limit = 3840
 
 func _ready():
 	Global.Player = self
@@ -38,9 +37,6 @@ func fall(delta):
 		motion.y = GRAVITY * delta
 	else:
 		motion.y += GRAVITY * delta
-	
-	if position.y > world_limit:
-		Global.GameState.end_game()
 
 func run():
 	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
@@ -54,7 +50,7 @@ func run():
 func jump(): 
 	if is_on_floor() and Input.is_action_pressed("ui_up"):
 		motion.y = JUMP_SPEED
-		Global.jump_sfx.play()
+		#Global.jump_sfx.play()
 
 func boost():
 	motion.y = JUMP_SPEED * JUMP_BOOST
