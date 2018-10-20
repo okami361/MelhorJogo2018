@@ -14,12 +14,10 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
-func _on_Sprite_input_event(viewport, event, shape_idx):
+func _on_Avast_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
-		print("segurou")
 		get_node("..").segurando = true
 		get_node("..").objeto = get_node(".")
 	
