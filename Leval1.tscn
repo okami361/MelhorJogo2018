@@ -69,6 +69,7 @@ bounce = 0.0
 position = Vector2( 801.103, 880.387 )
 shape = SubResource( 1 )
 
+
 [node name="Player" parent="." index="3" instance=ExtResource( 3 )]
 
 
