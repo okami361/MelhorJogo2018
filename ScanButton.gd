@@ -1,12 +1,14 @@
-extends Area2D
+extends TextureButton
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var pointerManager
+onready var countLabel = get_node("CountLabel")
 
 func _ready():
-	pointerManager = get_node("../WindowAvast").get_node("PointerManager")
+	
+	
+	
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -17,11 +19,9 @@ func _ready():
 #	pass
 
 
-func _on_Lixeira_mouse_entered():
-	pointerManager.emCimaLixeira = true
-	pass # replace with function body
-
-
-func _on_Lixeira_mouse_exited():
-	pointerManager.emCimaLixeira = false
+func _on_ScanButton_pressed():
+	var windowAvast = get_node("..")
+	windowAvast._start_scan()
+	
+	
 	pass # replace with function body
