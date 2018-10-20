@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 351.735, 343.076 )
+extents = Vector2( 84.9856, 96.9178 )
 
-[node name="Lixeira" type="Area2D" index="0"]
+[node name="Lixeira" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -22,7 +22,9 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }

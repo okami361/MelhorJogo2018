@@ -76,6 +76,8 @@ script = ExtResource( 3 )
 
 [node name="Lixeira" parent="Pointer" index="0" instance=ExtResource( 4 )]
 
+position = Vector2( 267.387, 142.296 )
+
 [node name="Avast" parent="Pointer" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 729.479, 321.93 )

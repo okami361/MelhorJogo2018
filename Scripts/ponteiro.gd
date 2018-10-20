@@ -22,9 +22,10 @@ func _input(event):
 	if (event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and !event.is_pressed()):
-		if(objeto.is_in_group("AvastAttacks") and emCimaLixeira):
-			print("AvastAttacks")
-			objeto.queue_free()
+		if(objeto != null):
+			if(objeto.is_in_group("AvastAttacks") and emCimaLixeira):
+				print("AvastAttacks")
+				objeto.queue_free()
 			
 		objeto = null
 		segurando = false
