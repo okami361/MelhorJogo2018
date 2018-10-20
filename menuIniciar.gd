@@ -18,7 +18,7 @@ func _on_btnAreaDeTrabalho_pressed():
 	print("botao area de trabalho")
 	get_node("..").find_node("AnimationPlayer").stop(false)
 	pressionado = false
-	get_node(".").apply_scale(Vector2(1,0))	
+	get_node(".").position = Vector2(215,1439)	
 	pass # replace with function body
 
 
@@ -30,6 +30,6 @@ func _on_btnMenuIniciar_pressed():
 	else :
 		get_node("..").find_node("AnimationPlayer").stop(false)
 		pressionado = false
-		get_node(".").apply_scale(Vector2(1,0))	
+		get_node(".").position = Vector2(215,1439)	
 	
 	pass
