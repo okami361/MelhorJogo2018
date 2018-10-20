@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 887.735, 16.794 )
 
-[node name="Leval1" type="Node" index="0"]
+[node name="Leval1" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -89,8 +89,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Background" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Sprite" type="Sprite" parent="Background" index="0"]
 
 texture = ExtResource( 1 )
@@ -137,5 +135,12 @@ scale = Vector2( 1, 1e-005 )
 [connection signal="pressed" from="btnAreaDeTrabalho" to="raizMenuIniciar" method="_on_btnAreaDeTrabalho_pressed"]
 
 [connection signal="pressed" from="btnMenuIniciar" to="raizMenuIniciar" method="_on_btnMenuIniciar_pressed"]
+[node name="WindowAvast" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 590.457, 477.13 )
+
+[node name="Lixeira" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 1113.32, 163.589 )
 
 

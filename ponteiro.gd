@@ -24,7 +24,7 @@ func _input(event):
     and !event.is_pressed()):
 		if(objeto != null):
 			if(objeto.is_in_group("AvastAttacks") and emCimaLixeira):
-				print("AvastAttacks")
+				get_node("..")._one_died()
 				objeto.queue_free()
 			
 		objeto = null
@@ -32,6 +32,9 @@ func _input(event):
 	elif event is InputEventMouseMotion:
 		if(segurando):
 			objeto.position = event.position
+			print(objeto)
+			if (objeto.is_in_group("AvastWindow")):
+				objeto.position = Vector2(event.position.x, event.position.y +325)
 
 	
 
