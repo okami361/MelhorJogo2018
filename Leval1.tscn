@@ -1,18 +1,14 @@
-
 [gd_scene load_steps=8 format=2]
-
 
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=1]
 [ext_resource path="res://Images/Toolbar.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=4]
-[ext_resource path="res://PopupSpawner.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 887.735, 16.794 )
-
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -110,8 +106,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Toolbar" type="Node" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
 
 position = Vector2( 800.012, 879.408 )
@@ -156,17 +150,8 @@ shape = SubResource( 3 )
 position = Vector2( 215, 860 )
 scale = Vector2( 1, 1e-005 )
 
-[node name="PopupSpawner" parent="." index="7" instance=ExtResource( 5 )]
-
 [connection signal="pressed" from="btnAreaDeTrabalho" to="raizMenuIniciar" method="_on_btnAreaDeTrabalho_pressed"]
 
 [connection signal="pressed" from="btnMenuIniciar" to="raizMenuIniciar" method="_on_btnMenuIniciar_pressed"]
-[node name="WindowAvast" parent="." index="4" instance=ExtResource( 4 )]
-
-position = Vector2( 590.457, 477.13 )
-
-[node name="Lixeira" parent="." index="5" instance=ExtResource( 5 )]
-
-position = Vector2( 1113.32, 163.589 )
 
 
