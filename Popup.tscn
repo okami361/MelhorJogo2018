@@ -58,18 +58,18 @@ custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "I'm a pop-up window.
-	
-	
-	
+
+
+
 :3"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
 text = "I'm a pop-up window.
-	
-	
-	
+
+
+
 :3"
 scroll_active = true
 scroll_following = false

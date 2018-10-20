@@ -13,7 +13,16 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
+
+func _on_btnAreaDeTrabalho_pressed():
+	print("botao area de trabalho")
+	get_node("..").find_node("AnimationPlayer").stop(false)
+	pressionado = false
+	get_node(".").apply_scale(Vector2(1,0))	
+	pass # replace with function body
+
+
+func _on_btnMenuIniciar_pressed():
 	print("botao menu iniciar")
 	if not pressionado :
 		get_node("..").find_node("AnimationPlayer").play("animMenuIniciar")
@@ -22,13 +31,5 @@ func _on_Button_pressed():
 		get_node("..").find_node("AnimationPlayer").stop(false)
 		pressionado = false
 		get_node(".").apply_scale(Vector2(1,0))	
-		
-	pass # replace with function body
-
-
-func _on_btnAreaDeTrabalho_pressed():
-	print("botao area de trabalho")
-	get_node("..").find_node("AnimationPlayer").stop(false)
-	pressionado = false
-	get_node(".").apply_scale(Vector2(1,0))	
-	pass # replace with function body
+	
+	pass
