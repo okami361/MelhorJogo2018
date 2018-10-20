@@ -4,9 +4,9 @@
 [ext_resource path="res://Images/Player/PlayerIdle1.png" type="Texture" id=2]
 [ext_resource path="res://Images/Player/PlayerIdle2.png" type="Texture" id=3]
 [ext_resource path="res://Images/Player/Death.png" type="Texture" id=4]
-[ext_resource path="res://Images/Player/PlayerWalk1.png" type="Texture" id=5]
-[ext_resource path="res://Images/Player/PlayerWalk2.png" type="Texture" id=6]
-[ext_resource path="res://Images/Player/Jump.png" type="Texture" id=7]
+[ext_resource path="res://Images/Player/Jump.png" type="Texture" id=5]
+[ext_resource path="res://Images/Player/PlayerWalk1.png" type="Texture" id=6]
+[ext_resource path="res://Images/Player/PlayerWalk2.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/PlayerAnimation.gd" type="Script" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -22,15 +22,15 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "run",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 7.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -40,7 +40,7 @@ custom_solver_bias = 0.0
 radius = 97.0194
 height = 93.6925
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 714.981, 435.364 )
 scale = Vector2( 0.35, 0.35 )
@@ -58,7 +58,6 @@ __meta__ = {
 
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 8 )

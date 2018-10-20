@@ -8,8 +8,8 @@ const KNOCKBACK = -1500
 const JUMP_BOOST = 2
 
 var hurt = false
-
 var motion = Vector2()
+var key = false
 
 func _ready():
 	Global.Player = self
