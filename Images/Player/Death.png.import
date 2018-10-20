@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Death.png-d90e3611d0d09fc60804614f60225808.stex"
+path="res://.import/Death.png-3fccb78f65f525c17c348f822b47484a.stex"
 
 [deps]
 
-source_file="res://Death.png"
-dest_files=[ "res://.import/Death.png-d90e3611d0d09fc60804614f60225808.stex" ]
+source_file="res://Images/Player/Death.png"
+dest_files=[ "res://.import/Death.png-3fccb78f65f525c17c348f822b47484a.stex" ]
 
 [params]
 
