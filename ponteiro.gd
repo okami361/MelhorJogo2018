@@ -22,7 +22,6 @@ func _input(event):
 	if (event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and !event.is_pressed()):
-		print("Soltou")
 		objeto = null
 		segurando = false
 	elif event is InputEventMouseMotion:
