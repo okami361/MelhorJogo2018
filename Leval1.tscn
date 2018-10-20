@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=1]
 [ext_resource path="res://Images/Toolbar.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+<<<<<<< HEAD
 [ext_resource path="res://WindowAvast.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lixeira.tscn" type="PackedScene" id=5]
+=======
+>>>>>>> ea8275e91a28f777dcad1c08c18ffc0970d1b557
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -69,6 +72,7 @@ bounce = 0.0
 position = Vector2( 801.103, 880.387 )
 shape = SubResource( 1 )
 
+<<<<<<< HEAD
 [node name="Player" parent="." index="3" instance=ExtResource( 3 )]
 
 world_limit = 3840
@@ -80,5 +84,9 @@ position = Vector2( 590.457, 477.13 )
 [node name="Lixeira" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 1113.32, 163.589 )
+=======
+
+[node name="Player" parent="." index="3" instance=ExtResource( 3 )]
+>>>>>>> ea8275e91a28f777dcad1c08c18ffc0970d1b557
 
 
