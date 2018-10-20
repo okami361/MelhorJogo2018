@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 887.735, 16.794 )
 
-[node name="Leval1" type="Node" index="0"]
+[node name="Leval1" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
