@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="MelhorJogo2018"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Leval1.tscn"
 config/icon="res://icon.png"
 
 [rendering]
