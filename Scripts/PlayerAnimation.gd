@@ -11,3 +11,5 @@ func update_animation(motion):
 		flip_h = false
 	elif not Global.Player.hurt:
 		play("idle")
+	elif Global.Player.hurt:
+		play("hurt")

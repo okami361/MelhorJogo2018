@@ -33,7 +33,7 @@ __meta__ = {
 
 [node name="doubleClickScene" parent="." index="1" instance=ExtResource( 2 )]
 
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 2.5, 2.5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]

@@ -27,7 +27,6 @@ func _input(event):
 	elif event is InputEventMouseMotion:
 		if(segurando and objeto!=null):
 			objeto.position = event.position
-			print(objeto)
 			if (objeto.is_in_group("AvastWindow")):
 				objeto.position = Vector2(event.position.x, event.position.y +325)
 

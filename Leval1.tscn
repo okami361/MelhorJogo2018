@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://ponteiro.gd" type="Script" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=5]
-[ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Lixeira.tscn" type="PackedScene" id=7]
-[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Images/Toolbar.png" type="Texture" id=9]
-[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Lixeira.tscn" type="PackedScene" id=5]
+[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ponteiro.gd" type="Script" id=8]
+[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Images/Toolbar.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -87,43 +87,47 @@ visible = false
 position = Vector2( 3.59241, -4.78992 )
 shape = SubResource( 1 )
 
-[node name="NotepadPos" type="Node2D" parent="." index="3"]
-
-[node name="PointerManager" type="Node" parent="." index="4"]
-
-script = ExtResource( 3 )
-
-[node name="Player" parent="." index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 791.43, 545.628 )
-
-[node name="Notepad" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Notepad" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 1300, -630 )
 collision_mask = 9
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Notepad2" parent="." index="7" instance=ExtResource( 6 )]
+[node name="Notepad2" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 100.999, 75 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Lixeira" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Lixeira" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 1500.87, 75 )
+position = Vector2( 1515.94, 775.916 )
 
-[node name="raizMenuIniciar" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Notepad3" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 275.237, 75 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="NotepadPos" type="Node2D" parent="." index="7"]
+
+[node name="Player" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 791.43, 545.628 )
+
+[node name="PointerManager" type="Node" parent="." index="9"]
+
+script = ExtResource( 8 )
+
+[node name="raizMenuIniciar" parent="." index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 215, 1439 )
 
-[node name="Toolbar" type="Node" parent="." index="10"]
-
-editor/display_folded = true
+[node name="Toolbar" type="Node" parent="." index="11"]
 
 [node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
 
-position = Vector2( 800.012, 879.408 )
-texture = ExtResource( 9 )
+position = Vector2( 800, 880 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
 
@@ -158,7 +162,7 @@ position = Vector2( 1406.22, -4.70156e+007 )
 scale = Vector2( 2.17216, 5.0547e+006 )
 shape = SubResource( 4 )
 
-[node name="btnMenuIniciar" type="Button" parent="." index="11"]
+[node name="btnMenuIniciar" type="Button" parent="." index="12"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -183,11 +187,6 @@ group = null
 flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
-
-[node name="Notepad3" parent="." index="12" instance=ExtResource( 10 )]
-
-position = Vector2( 275.237, 75 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
 [connection signal="input_event" from="BtncCloseIniciar" to="raizMenuIniciar" method="_on_BtncCloseIniciar_input_event"]
 

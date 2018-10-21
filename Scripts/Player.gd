@@ -15,6 +15,7 @@ var _keySprite = preload("res://xNotepadSprite.tscn")
 var notepad = false;
 var avast = false;
 
+var qtdDamage = 0
 
 func _ready():
 	Global.Player = self
@@ -77,3 +78,17 @@ func pickup_key():
 func destroy_key():
 	$xNotepadSprite.queue_free()
 	key = false
+	
+func take_damage(x,y):
+	SPEED = SPEED/2
+	
+	var novoAvastGrudado = preload("res://avastGrudado.tscn").instance()
+	get_node(".").add_child(novoAvastGrudado)
+	novoAvastGrudado.position = Vector2(x,y) - self.position
+	qtdDamage = qtdDamage +1
+	
+func take_damage_off():
+	SPEED = SPEED*2
+	qtdDamage = qtdDamage-1
+	
+	

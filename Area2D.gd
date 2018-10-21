@@ -13,7 +13,6 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
 		if Global.IconKey:
-			print("uau")
 			print(Global.IconKey)
 			Double_Click()
 
@@ -21,13 +20,11 @@ func Double_Click():
 	if not time:
 		$Timer.start()
 		time = true 
-		print("click")
 	else:
 		print("lalal + ",get_node("../..").name)
 		if get_node("../..").name == "Notepad2":
 			var _NotePad = NotePad.instance()
 			var _xButton = xButton.instance()
-			print("doubleclick")
 			get_node("/root/Leval1/NotepadPos").add_child(_NotePad)
 			get_node("/root/Leval1/NotepadPos").add_child(_xButton)
 			Global.IconKey = false
