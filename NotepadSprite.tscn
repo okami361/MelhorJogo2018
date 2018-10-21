@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://xNotepadSprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/Notepad.png" type="Texture" id=2]
+
+[node name="NotepadSprite" instance=ExtResource( 1 )]
+
+scale = Vector2( 1, 1 )
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( -4.46095, 2.46095 )
+scale = Vector2( 0.427649, 0.427649 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset" ]
+
+
