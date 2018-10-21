@@ -5,7 +5,7 @@ var difX
 var difY
 var segurando = false
 
-onready var pointerManager = get_tree().get_root().find_node("PointerManager", true, false)
+onready var pointerManager = get_node("/root/Leval1/PointerManager")
 
 func _ready():
 	pass
