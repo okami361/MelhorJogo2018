@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sair/sairScene.gd" type="Script" id=1]
 [ext_resource path="res://sair/ButtonSair2OnClick.gd" type="Script" id=2]
 [ext_resource path="res://Images/sair4.png" type="Texture" id=3]
-[ext_resource path="res://shutting_down.png" type="Texture" id=4]
-[ext_resource path="res://sair/Sprite3.gd" type="Script" id=5]
-[ext_resource path="res://Sounds/Error_Sound.wav" type="AudioStream" id=6]
-[ext_resource path="res://sair/destroySelfExitOnClick.gd" type="Script" id=7]
-[ext_resource path="res://Sounds/Shutdown_Windows_XP.wav" type="AudioStream" id=8]
-[ext_resource path="res://Images/sair2.png" type="Texture" id=9]
-[ext_resource path="res://sair/destroyExitOnClick.gd" type="Script" id=10]
+[ext_resource path="res://sair/Sprite2.gd" type="Script" id=4]
+[ext_resource path="res://shutting_down.png" type="Texture" id=5]
+[ext_resource path="res://sair/Sprite3.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/Error_Sound.wav" type="AudioStream" id=7]
+[ext_resource path="res://sair/destroySelfExitOnClick.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/Shutdown_Windows_XP.wav" type="AudioStream" id=9]
+[ext_resource path="res://Images/sair2.png" type="Texture" id=10]
+[ext_resource path="res://sair/destroyExitOnClick.gd" type="Script" id=11]
 
 [node name="sair" type="Node2D"]
 
@@ -46,13 +47,14 @@ script = ExtResource( 2 )
 
 position = Vector2( 800, 450 )
 texture = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite3" type="Sprite" parent="." index="2"]
 
 position = Vector2( 800, 450 )
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="Sprite3" index="0"]
@@ -64,7 +66,7 @@ autostart = false
 
 [node name="AudioError" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -94,11 +96,11 @@ shortcut = null
 group = null
 flat = false
 align = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="AudioShutDown" type="AudioStreamPlayer" parent="." index="5"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -108,8 +110,8 @@ bus = "Master"
 [node name="Sprite" type="Sprite" parent="." index="6"]
 
 position = Vector2( 800, 450 )
-texture = ExtResource( 9 )
-script = ExtResource( 10 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
