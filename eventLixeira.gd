@@ -3,10 +3,9 @@ extends Area2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var pointerManager
+onready var pointerManager = get_node("/root/Leval1/PointerManager")
 
 func _ready():
-	pointerManager = get_node("../WindowAvast").get_node("PointerManager")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
