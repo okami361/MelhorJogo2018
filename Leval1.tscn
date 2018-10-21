@@ -72,7 +72,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="BtncCloseIniciar" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 796, 440 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -106,11 +105,12 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Notepad2" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( 100.999, 80.9987 )
+position = Vector2( 100.999, 75 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Lixeira" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( 1500.87, 86.7514 )
+position = Vector2( 1500.87, 75 )
 
 [node name="raizMenuIniciar" parent="." index="9" instance=ExtResource( 8 )]
 
@@ -186,7 +186,8 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Notepad3" parent="." index="12" instance=ExtResource( 10 )]
 
-position = Vector2( 275.237, 75.9512 )
+position = Vector2( 275.237, 75 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [connection signal="input_event" from="BtncCloseIniciar" to="raizMenuIniciar" method="_on_BtncCloseIniciar_input_event"]
 

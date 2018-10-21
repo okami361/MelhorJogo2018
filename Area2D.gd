@@ -23,7 +23,8 @@ func Double_Click():
 		time = true 
 		print("click")
 	else:
-		if get_node("../..").name == "NotepadIcon":
+		print("lalal + ",get_node("../..").name)
+		if get_node("../..").name == "Notepad2":
 			var _NotePad = NotePad.instance()
 			var _xButton = xButton.instance()
 			print("doubleclick")
@@ -31,7 +32,7 @@ func Double_Click():
 			get_node("/root/Leval1/NotepadPos").add_child(_xButton)
 			Global.IconKey = false
 			print(Global.IconKey)
-		elif get_node("../..").name == "AvastIcon":
+		elif get_node("../..").name == "Notepad3":
 			var _Avast = Avast.instance()
 			get_node("/root/Leval1/NotepadPos").add_child(_Avast)
 			Global.IconKey = false

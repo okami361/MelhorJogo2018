@@ -1,5 +1,6 @@
 extends Area2D
 
+
 onready var pointerManager = get_node("/root/Leval1/PointerManager")
 
 #func _process(delta):
