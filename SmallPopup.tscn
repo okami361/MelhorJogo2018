@@ -12,7 +12,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 246, 31.9999 )
 
 [node name="Popup" type="Node2D" groups=[
-"Popups",
+"SmallPopups",
 ]]
 
 script = ExtResource( 1 )

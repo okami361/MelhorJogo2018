@@ -4,7 +4,7 @@ onready var pointerManager = get_node("/root/Leval1/PointerManager")
 
 func _on_Button_pressed():
 	self.queue_free()
-
+	get_node("../../").one_dead()
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):

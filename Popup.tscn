@@ -10,7 +10,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 252.72, 31.6135 )
 
-[node name="Popup" type="Node2D"]
+[node name="Popup" type="Node2D" groups=[
+"BigPopups",
+]]
 
 script = ExtResource( 1 )
 
@@ -43,10 +45,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -218.0
-margin_top = -325.0
-margin_right = -113.0
-margin_bottom = -276.0
+margin_left = -220.0
+margin_top = -320.0
+margin_right = -115.0
+margin_bottom = -271.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -79,21 +81,43 @@ size_flags_vertical = 1
 custom_fonts/normal_font = ExtResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "I'm a pop-up window.
-
-
-
-:3"
+bbcode_text = "Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "I'm a pop-up window.
-
-
-
-:3"
-scroll_active = true
+text = "Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus
+Not a Vírus Not a Vírus Not a Vírus Not a Vírus"
+scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
