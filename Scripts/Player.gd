@@ -11,6 +11,10 @@ var hurt = false
 var motion = Vector2()
 var key = false
 
+var notepad = false;
+var avast = false;
+
+
 func _ready():
 	Global.Player = self
 

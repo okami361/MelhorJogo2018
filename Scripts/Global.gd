@@ -3,6 +3,8 @@ extends Node
 #Nodes - set automatically
 var GameState
 var Player
+var notepad = false
+var avast = false
 #var GUI
 #var jump_sfx
 #var pain_sfx
