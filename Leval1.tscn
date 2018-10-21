@@ -1,29 +1,33 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=1]
-[ext_resource path="res://Images/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Images/Toolbar.png" type="Texture" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CameraShake.gd" type="Script" id=2]
+[ext_resource path="res://Images/Background.jpg" type="Texture" id=3]
+[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Images/Toolbar.png" type="Texture" id=5]
 [ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=6]
 [ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=7]
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 812.34, 486.712 )
+[ext_resource path="res://ponteiro.gd" type="Script" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://WindowAvast.tscn" type="PackedScene" id=10]
+[ext_resource path="res://PopupSpawner.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 887.735, 16.794 )
+extents = Vector2( 812.34, 486.712 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 887.735, 16.794 )
 
 [sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -57,13 +61,14 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+script = ExtResource( 2 )
 _sections_unfolded = [ "Limit", "Transform" ]
 
 [node name="Background" type="Node" parent="." index="1"]
 
 [node name="Sprite" type="Sprite" parent="Background" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
@@ -83,9 +88,9 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 3.59241, -4.78992 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
-[node name="raizMenuIniciar" parent="." index="3" instance=ExtResource( 3 )]
+[node name="raizMenuIniciar" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 215, 1439 )
 
@@ -121,7 +126,7 @@ editor/display_folded = true
 [node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
 
 position = Vector2( 800.012, 879.408 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
 
@@ -141,35 +146,43 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 position = Vector2( 585.85, 1.81428e+006 )
 scale = Vector2( 1.08312, -111268 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="1"]
 
 position = Vector2( -232.816, -4.59106e+007 )
 scale = Vector2( 2.17216, 5.0547e+006 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="2"]
 
 position = Vector2( 1406.22, -4.70156e+007 )
 scale = Vector2( 2.17216, 5.0547e+006 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="NotepadPos" type="Node2D" parent="." index="6"]
 
-[node name="Player" parent="." index="7" instance=ExtResource( 5 )]
-
-position = Vector2( 791.43, 545.628 )
-
-[node name="Notepad" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Notepad" parent="." index="7" instance=ExtResource( 6 )]
 
 position = Vector2( 1268.77, -629.239 )
 collision_mask = 9
 
-[node name="Notepad2" parent="." index="9" instance=ExtResource( 7 )]
+[node name="Notepad2" parent="." index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 100.999, 80.9987 )
+
+[node name="PointerManager" type="Node" parent="." index="9"]
+
+script = ExtResource( 8 )
+
+[node name="Player" parent="." index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 791.43, 545.628 )
+
+[node name="WindowAvast" parent="." index="11" instance=ExtResource( 10 )]
+
+[node name="PopupSpawner" parent="." index="12" instance=ExtResource( 11 )]
 
 [connection signal="input_event" from="BtncCloseIniciar" to="raizMenuIniciar" method="_on_BtncCloseIniciar_input_event"]
 
