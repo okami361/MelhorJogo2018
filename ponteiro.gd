@@ -29,7 +29,11 @@ func _input(event):
 			objeto.position = event.position
 			if (objeto.is_in_group("AvastWindow")):
 				objeto.position = Vector2(event.position.x, event.position.y +325)
-
+			elif (objeto.is_in_group("SmallPopups")):
+				objeto.position = Vector2(event.position.x, event.position.y +135)
+			elif (objeto.is_in_group("BigPopups")):
+				objeto.position = Vector2(event.position.x, event.position.y +300)
+					
 	
 
 	

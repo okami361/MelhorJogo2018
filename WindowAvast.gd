@@ -16,11 +16,17 @@ var started = false
 
 var finalizeAttack = false
 
+func _ready():
+
+	pass
+
 func _start_scan():
 	if(!finalizeAttack):
+		get_node("audioAvast").play()
 		countLabel.show()
 		_update_countText()
 		started = true
+		get_node("ScanButton").disabled = true
 
 func _update_countText():
 	countLabel.text = "Count Enemys: " + str(count)

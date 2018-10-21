@@ -40,7 +40,7 @@ custom_solver_bias = 0.0
 radius = 97.0194
 height = 93.6925
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 714.981, 435.364 )
 scale = Vector2( 0.35, 0.35 )

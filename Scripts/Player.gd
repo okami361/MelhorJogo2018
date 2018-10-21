@@ -10,7 +10,11 @@ const JUMP_BOOST = 2
 var hurt = false
 var motion = Vector2()
 var key = false
+
 var _keySprite = preload("res://xNotepadSprite.tscn")
+var _notepadSprite = preload ("res://NotepadSprite.tscn")
+var _avastSprite = preload ("res://AvastSprite.tscn")
+
 
 var notepad = false;
 var avast = false;
@@ -70,6 +74,7 @@ func hurt():
 func _on_Timer_timeout():
 	hurt = false
 
+
 func pickup_key():
 	var keySprite = _keySprite.instance()
 	add_child(keySprite)
@@ -92,3 +97,33 @@ func take_damage_off():
 	qtdDamage = qtdDamage-1
 	
 	
+func pickup_key(wichkey):
+	if wichkey == "xnotepad":
+		var keySprite = _keySprite.instance()
+		add_child(keySprite)
+		key = true
+	elif wichkey == "notepadicon":
+		var notepadSprite = _notepadSprite.instance()
+		add_child(notepadSprite)
+		notepad = true
+		print(wichkey)
+		print(avast)
+		print(notepad)
+	elif wichkey == "avasticon":
+		var avastSprite = _avastSprite.instance()
+		add_child(avastSprite)
+		avast = true
+		print(wichkey)
+		print(avast)
+		print(notepad)
+
+func destroy_key(wichkey):
+	if wichkey == "xnotepad":
+		$xNotepadSprite.queue_free()
+		key = false
+	elif wichkey == "notepadicon":
+		$NotepadSprite.queue_free()
+		notepad = false
+	elif wichkey == "avasticon":
+		$AvastSprite.queue_free()
+		avast = false

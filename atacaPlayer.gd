@@ -10,6 +10,15 @@ onready var pointerManager = get_node("/root/Leval1/PointerManager")
 func _process(delta):
 	if !segurando:
 		self.position = self.position + (Vector2(difX, difY).normalized() * vel * delta)
+		
+		if(position.x > get_viewport_rect().size.x):
+			queue_free()
+		if(position.x < 0):
+			queue_free()
+		if(position.y > get_viewport_rect().size.y):
+			queue_free()
+		if(position.y < 0):
+			queue_free()
 
 func _calculate_direction():
 	var player = get_tree().get_root().find_node("Player", true, false)

@@ -16,5 +16,6 @@ func _ready():
 
 
 func _on_Button_pressed():
+	get_node("../AudioShutDown").play()
 	queue_free()
 	pass # replace with function body
