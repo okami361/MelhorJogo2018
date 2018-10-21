@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://AvastBody.gd" type="Script" id=1]
+[ext_resource path="res://Images/avastIcone.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.54887, 5.53313 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Avast" type="RigidBody2D"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 1024
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.7
+gravity_scale = 4.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -1.19165, 7.54709 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -1.22407, 8.00438 )
+scale = Vector2( 5.76136, 6.79629 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( -0.826852, 7.20995 )
+scale = Vector2( 4.53744, 4.46105 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+

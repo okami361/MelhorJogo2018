@@ -26,7 +26,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 499.977, 157.071 )
 
-[node name="WindowAvast" type="Node2D" index="0" groups=[
+[node name="WindowAvast" type="Node2D" groups=[
 "AvastWindow",
 ]]
 
