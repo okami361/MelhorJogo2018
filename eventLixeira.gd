@@ -1,10 +1,5 @@
 extends Area2D
 
-<<<<<<< HEAD
-var pointerManager
-
-func _ready():
-	pointerManager = get_node("../WindowAvast").get_node("PointerManager")
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Popup.gd" type="Script" id=1]
 [ext_resource path="res://Images/SmallPopup.png" type="Texture" id=2]
@@ -6,7 +6,14 @@
 [ext_resource path="res://Images/CloseButton.png" type="Texture" id=4]
 [ext_resource path="res://Images/Ok.png" type="Texture" id=5]
 
-[node name="Popup" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 246, 31.9999 )
+
+[node name="Popup" type="Node2D" groups=[
+"Popups",
+]]
 
 script = ExtResource( 1 )
 
@@ -16,7 +23,27 @@ position = Vector2( 5.94507, -3.16302 )
 scale = Vector2( 2.68705, 2.68705 )
 texture = ExtResource( 2 )
 
-[node name="Title" type="Label" parent="." index="1"]
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+position = Vector2( 10, -128 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( -4.5, 0 )
+scale = Vector2( 0.981928, 1 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -39,7 +66,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Body" type="RichTextLabel" parent="." index="2"]
+[node name="Body" type="RichTextLabel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -70,7 +97,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode" ]
 
-[node name="Button" type="TextureButton" parent="." index="3"]
+[node name="Button" type="TextureButton" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -99,7 +126,7 @@ texture_focused = ExtResource( 4 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Ok" type="TextureButton" parent="." index="4"]
+[node name="Ok" type="TextureButton" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -127,6 +154,8 @@ texture_disabled = ExtResource( 5 )
 texture_focused = ExtResource( 5 )
 expand = true
 _sections_unfolded = [ "Textures" ]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
