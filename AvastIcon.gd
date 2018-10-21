@@ -8,7 +8,7 @@ func _ready():
 	sprite = get_node("Sprite")
 
 func _on_Notepad_body_entered(body):
-	if Global.Player.avast:
+	if Global.IconKeyAvast:
 		sprite.set_texture(tex)
-		Global.IconKey = true
+		Global.Player.avast = true
 		Global.Player.destroy_key("avasticon")

@@ -81,4 +81,12 @@ func _on_InsidePanel_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
-		print("ola")
+		pass
+
+
+func _on_TextEdit_focus_entered():
+	Global.Player.notmoving = true
+
+
+func _on_TextEdit_focus_exited():
+	Global.Player.notmoving = false
