@@ -14,10 +14,11 @@ var key = false
 var _keySprite = preload("res://xNotepadSprite.tscn")
 var _notepadSprite = preload ("res://NotepadSprite.tscn")
 var _avastSprite = preload ("res://AvastSprite.tscn")
-
+var _dilmaSprite = preload ("res://DilmaSprite.tscn")
 
 var notepad = false;
 var avast = false;
+var dilma = false;
 
 var qtdDamage = 0
 
@@ -100,6 +101,7 @@ func pickup_key(wichkey):
 		print(wichkey)
 		print(avast)
 		print(notepad)
+		print(dilma)
 	elif wichkey == "avasticon":
 		var avastSprite = _avastSprite.instance()
 		add_child(avastSprite)
@@ -107,6 +109,15 @@ func pickup_key(wichkey):
 		print(wichkey)
 		print(avast)
 		print(notepad)
+		print(dilma)
+	elif wichkey == "dilmaicon":
+		var dilmaSprite = _dilmaSprite.instance()
+		add_child(dilmaSprite)
+		dilma = true
+		print(wichkey)
+		print(avast)
+		print(notepad)
+		print(dilma)
 
 func destroy_key(wichkey):
 	if wichkey == "xnotepad":
@@ -118,3 +129,6 @@ func destroy_key(wichkey):
 	elif wichkey == "avasticon":
 		$AvastSprite.queue_free()
 		avast = false
+	elif wichkey == "dilmaicon":
+		$DilmaSprite.queue_free()
+		dilma = false
