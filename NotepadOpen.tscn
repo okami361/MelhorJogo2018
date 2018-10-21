@@ -24,7 +24,7 @@ extents = Vector2( 14.2513, 11.147 )
 custom_solver_bias = 0.0
 extents = Vector2( 548.793, 338.491 )
 
-[node name="NotepadOpen" type="Sprite" index="0"]
+[node name="NotepadOpen" type="Sprite"]
 
 pause_mode = 2
 position = Vector2( 200.328, 104.416 )
