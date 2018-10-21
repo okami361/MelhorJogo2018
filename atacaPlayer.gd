@@ -1,6 +1,6 @@
 extends Node2D
 
-var vel = 500
+var vel = 1000
 var difX
 var difY
 var segurando = false
@@ -32,9 +32,18 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		pointerManager.segurando = true
 		pointerManager.objeto = self
 		segurando = true
+		var windowAvast = get_node("/root/Leval1/NotepadPos/WindowAvast")
 		
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and !event.is_pressed():
+		var windowAvast = get_node("/root/Leval1/NotepadPos/WindowAvast")
 		_calculate_direction()
 		segurando = false
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Player" and !segurando:
+		body.take_damage(self.position.x, self.position.y)
+		queue_free()
+	pass # replace with function body

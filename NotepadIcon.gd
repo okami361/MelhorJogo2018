@@ -11,3 +11,4 @@ func _on_Notepad_body_entered(body):
 	if Global.Player.notepad:
 		sprite.set_texture(tex)
 		Global.IconKey = true
+		Global.Player.destroy_key("notepadicon")

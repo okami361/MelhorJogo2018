@@ -13,10 +13,13 @@ radius = 80.0
 ]]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
@@ -30,7 +33,11 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+scale = Vector2( 0.8, 0.8 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 

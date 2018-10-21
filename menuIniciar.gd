@@ -18,7 +18,6 @@ func _on_BtncCloseIniciar_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
-		print("botao area de trabalho")
 		get_node("..").find_node("AnimationPlayer").stop(false)
 		pressionado = false
 		get_node(".").position = Vector2(215,1439)	

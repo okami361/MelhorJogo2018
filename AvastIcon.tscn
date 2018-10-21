@@ -21,7 +21,7 @@ use_filter = false
 font_data = SubResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="AvastIcon" type="Area2D" index="0"]
+[node name="AvastIcon" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -81,7 +81,7 @@ _sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Node2D" parent="." index="3" instance=ExtResource( 2 )]
 
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 2.5, 2.5 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Notepad_body_entered"]

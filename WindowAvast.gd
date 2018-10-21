@@ -1,12 +1,10 @@
 extends Node2D
 
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 onready var pointerManager = get_node("/root/Leval1/PointerManager")
 onready var countLabel = get_node("ScanButton/CountLabel")
 onready var avastAttack = preload("res://avastAttackScene.tscn")
+
 export var count = 30
 
 var rateSpawn = 2
@@ -47,24 +45,28 @@ func _one_died():
 	
 func _process(delta):
 	if (started):
-		wasteTime += delta
-		if (wasteTime >= rateSpawn):
-			var newAttack = avastAttack.instance()
-			pointerManager.add_child(newAttack)
-			
-			if(whereSpawn == 1):
-				newAttack.position = Vector2(0,  rand_range(0, get_viewport_rect().size.y))
-				whereSpawn = 2
-			elif(whereSpawn == 2):
-				newAttack.position = Vector2(rand_range(0, get_viewport_rect().size.x), 0)
-				whereSpawn = 3
-			elif(whereSpawn == 3):
-				newAttack.position = Vector2(get_viewport_rect().size.x, rand_range(0, get_viewport_rect().size.y))
-				whereSpawn = 1
-			
-			newAttack._calculate_direction()
-			
-			wasteTime = 0
+		var temp=0
+		if get_node("/root/Leval1/PointerManager").segurando:
+			temp=1
+		if get_tree().get_root().find_node("Player", true, false).qtdDamage + temp < count:
+			wasteTime += delta
+			if (wasteTime >= rateSpawn):
+				var newAttack = avastAttack.instance()
+				pointerManager.add_child(newAttack)
+				
+				if(whereSpawn == 1):
+					newAttack.position = Vector2(0,  rand_range(0, get_viewport_rect().size.y))
+					whereSpawn = 2
+				elif(whereSpawn == 2):
+					newAttack.position = Vector2(rand_range(0, get_viewport_rect().size.x), 0)
+					whereSpawn = 3
+				elif(whereSpawn == 3):
+					newAttack.position = Vector2(get_viewport_rect().size.x, rand_range(0, get_viewport_rect().size.y))
+					whereSpawn = 1
+				
+				newAttack._calculate_direction()
+				
+				wasteTime = 0
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \

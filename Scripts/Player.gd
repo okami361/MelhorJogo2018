@@ -10,11 +10,16 @@ const JUMP_BOOST = 2
 var hurt = false
 var motion = Vector2()
 var key = false
+
 var _keySprite = preload("res://xNotepadSprite.tscn")
+var _notepadSprite = preload ("res://NotepadSprite.tscn")
+var _avastSprite = preload ("res://AvastSprite.tscn")
+
 
 var notepad = false;
 var avast = false;
 
+var qtdDamage = 0
 
 func _ready():
 	Global.Player = self
@@ -69,11 +74,47 @@ func hurt():
 func _on_Timer_timeout():
 	hurt = false
 
-func pickup_key():
-	var keySprite = _keySprite.instance()
-	add_child(keySprite)
-	key = true
+	
+func take_damage(x,y):
+	SPEED = SPEED/2
+	
+	var novoAvastGrudado = preload("res://avastGrudado.tscn").instance()
+	get_node(".").add_child(novoAvastGrudado)
+	novoAvastGrudado.position = Vector2(x,y) - self.position
+	qtdDamage = qtdDamage +1
+	
+func take_damage_off():
+	SPEED = SPEED*2
+	qtdDamage = qtdDamage-1
+	
+	
+func pickup_key(wichkey):
+	if wichkey == "xnotepad":
+		var keySprite = _keySprite.instance()
+		add_child(keySprite)
+		key = true
+	elif wichkey == "notepadicon":
+		var notepadSprite = _notepadSprite.instance()
+		add_child(notepadSprite)
+		notepad = true
+		print(wichkey)
+		print(avast)
+		print(notepad)
+	elif wichkey == "avasticon":
+		var avastSprite = _avastSprite.instance()
+		add_child(avastSprite)
+		avast = true
+		print(wichkey)
+		print(avast)
+		print(notepad)
 
-func destroy_key():
-	$xNotepadSprite.queue_free()
-	key = false
+func destroy_key(wichkey):
+	if wichkey == "xnotepad":
+		$xNotepadSprite.queue_free()
+		key = false
+	elif wichkey == "notepadicon":
+		$NotepadSprite.queue_free()
+		notepad = false
+	elif wichkey == "avasticon":
+		$AvastSprite.queue_free()
+		avast = false

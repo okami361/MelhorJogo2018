@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 5.68844, 5.70636 )
 
-[node name="Avast" type="RigidBody2D" index="0"]
+[node name="Avast" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
