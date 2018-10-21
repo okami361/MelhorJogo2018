@@ -22,3 +22,8 @@ func _on_BtncCloseIniciar_input_event(viewport, event, shape_idx):
 		pressionado = false
 		get_node(".").position = Vector2(215,1439)	
 
+
+
+func _on_Turnoff_pressed():
+	get_tree().change_scene("res://sair//sairScene.tscn");
+	pass # replace with function body

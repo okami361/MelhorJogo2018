@@ -4,6 +4,12 @@ extends Node
 var GameState
 var Player
 var IconKey = false
+
+var turnoffNotepad = false
+var turnoffAvast = false
+var turnoffDilma = false
+
+
 #var GUI
 #var jump_sfx
 #var pain_sfx
