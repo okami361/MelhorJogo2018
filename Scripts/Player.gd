@@ -14,9 +14,13 @@ var motion = Vector2()
 var _keySprite = preload("res://xNotepadSprite.tscn")
 var _notepadSprite = preload ("res://NotepadSprite.tscn")
 var _avastSprite = preload ("res://AvastSprite.tscn")
+
 var key = false
+var _dilmaSprite = preload ("res://DilmaSprite.tscn")
+
 var notepad = false;
 var avast = false;
+var dilma = false;
 
 var qtdDamage = 0
 
@@ -71,12 +75,13 @@ func hurt():
 	$Timer.start()
 
 func _on_Timer_timeout():
-	hurt = false
+	#hurt = false
+	pass
 
 	
 func take_damage(x,y):
 	SPEED = SPEED/2
-	
+	hurt()
 	var novoAvastGrudado = preload("res://avastGrudado.tscn").instance()
 	get_node(".").add_child(novoAvastGrudado)
 	novoAvastGrudado.position = Vector2(x,y) - self.position
@@ -85,6 +90,8 @@ func take_damage(x,y):
 func take_damage_off():
 	SPEED = SPEED*2
 	qtdDamage = qtdDamage-1
+	if qtdDamage == 0:
+		Global.Player.hurt = false
 	
 	
 func pickup_key(wichkey):
@@ -113,3 +120,7 @@ func destroy_key(wichkey):
 		$AvastSprite.queue_free()
 		Global.IconKeyAvast = false
 		avast = true
+		avast = false
+	elif wichkey == "dilmaicon":
+		$DilmaSprite.queue_free()
+		dilma = false
