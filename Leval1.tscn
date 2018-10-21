@@ -22,6 +22,8 @@ extents = Vector2( 10, 10 )
 
 [node name="Leval1" type="Node" index="0"]
 
+_sections_unfolded = [ "Pause" ]
+
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
 anchor_mode = 0
@@ -148,6 +150,8 @@ scale = Vector2( 2.17216, 5.0547e+006 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 791.43, 545.628 )
 
 [connection signal="pressed" from="btnAreaDeTrabalho" to="raizMenuIniciar" method="_on_btnAreaDeTrabalho_pressed"]
 

@@ -1,17 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Images/NotepadOpen.png" type="Texture" id=1]
 [ext_resource path="res://NotepadOpen.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/TextEdit.gd" type="Script" id=3]
-[ext_resource path="res://xButton.gd" type="Script" id=4]
-[ext_resource path="res://Images/white.png" type="Texture" id=5]
+[ext_resource path="res://CONSOLA.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/TextEdit.gd" type="Script" id=4]
+[ext_resource path="res://xButton.gd" type="Script" id=5]
+[ext_resource path="res://Images/white.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 38
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 14.2513, 11.147 )
 
-[node name="NotepadOpen" type="Sprite"]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 548.793, 298.621 )
+
+[node name="NotepadOpen" type="Sprite" index="0"]
 
 pause_mode = 2
 position = Vector2( -131.672, -95.5843 )
@@ -30,10 +44,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 431.0
-margin_top = 211.0
-margin_right = 1047.0
-margin_bottom = 569.0
+margin_left = 8.0
+margin_top = 51.0
+margin_right = 1108.0
+margin_bottom = 649.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -41,6 +55,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 text = ""
 readonly = false
 highlight_current_line = false
@@ -57,8 +72,8 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-script = ExtResource( 3 )
-_sections_unfolded = [ "Caret", "Visibility" ]
+script = ExtResource( 4 )
+_sections_unfolded = [ "Caret", "Visibility", "custom_fonts" ]
 
 [node name="xButton" type="Area2D" parent="." index="1"]
 
@@ -71,7 +86,7 @@ angular_damp = 1.0
 collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true
@@ -86,9 +101,59 @@ shape = SubResource( 1 )
 [node name="ButtonBlock" type="Sprite" parent="xButton" index="1"]
 
 position = Vector2( 4.94495, 0.170525 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
+[node name="CloseButton" type="Button" parent="xButton" index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -7.0
+margin_top = -8.0
+margin_right = 18.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="InsidePanel" type="Area2D" parent="." index="2"]
+
+position = Vector2( 560.418, 350.86 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsidePanel" index="0"]
+
+visible = false
+shape = SubResource( 2 )
+
 [connection signal="body_entered" from="xButton" to="xButton" method="_on_xButton_body_entered"]
+
+[connection signal="button_down" from="xButton/CloseButton" to="." method="_on_Button_button_down"]
+
+[connection signal="input_event" from="InsidePanel" to="." method="_on_InsidePanel_input_event"]
 
 

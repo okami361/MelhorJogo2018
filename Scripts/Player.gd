@@ -10,6 +10,7 @@ const JUMP_BOOST = 2
 var hurt = false
 var motion = Vector2()
 var key = false
+var _keySprite = preload("res://xNotepadSprite.tscn")
 
 func _ready():
 	Global.Player = self
@@ -63,3 +64,13 @@ func hurt():
 
 func _on_Timer_timeout():
 	hurt = false
+
+func pickup_key():
+	var keySprite = _keySprite.instance()
+	add_child(keySprite)
+	key = true
+	print("pegueiiii")
+
+func destroy_key():
+	$xNotepadSprite.queue_free()
+	key = false

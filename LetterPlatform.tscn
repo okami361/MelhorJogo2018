@@ -3,12 +3,12 @@
 [ext_resource path="res://LetterPlatform.gd" type="Script" id=1]
 [ext_resource path="res://CONSOLA.TTF" type="DynamicFontData" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 15.0564 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 38
 use_mipmaps = false
@@ -30,7 +30,7 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 position = Vector2( -3.63499, -11.1556 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Label" type="Label" parent="." index="1"]
 
@@ -49,7 +49,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "A"
 percent_visible = 1.0
 lines_skipped = 0

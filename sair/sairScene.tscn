@@ -9,8 +9,9 @@
 [ext_resource path="res://Images/sair2.png" type="Texture" id=7]
 [ext_resource path="res://sair/destroyExitOnClick.gd" type="Script" id=8]
 
-[node name="sair" type="Node2D" index="0"]
+[node name="sair" type="Node2D"]
 
+position = Vector2( 0, 1.62903 )
 script = ExtResource( 1 )
 
 [node name="Button2" type="Button" parent="." index="0"]
