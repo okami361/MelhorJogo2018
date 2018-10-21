@@ -10,4 +10,4 @@ func _ready():
 func _on_Notepad_body_entered(body):
 	if Global.Player.notepad:
 		sprite.set_texture(tex)
-		Global.notepad = true
+		Global.IconKey = true

@@ -1,34 +1,37 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Images/Toolbar.png" type="Texture" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=6]
-[ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=7]
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 812.34, 486.712 )
+[ext_resource path="res://ponteiro.gd" type="Script" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Lixeira.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Images/Toolbar.png" type="Texture" id=9]
+[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 887.735, 16.794 )
+extents = Vector2( 812.34, 486.712 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 887.735, 16.794 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Leval1" type="Node" index="0"]
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Leval1" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -69,7 +72,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="BtncCloseIniciar" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 796, 440 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -83,14 +85,82 @@ audio_bus_name = "Master"
 
 visible = false
 position = Vector2( 3.59241, -4.78992 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
-[node name="raizMenuIniciar" parent="." index="3" instance=ExtResource( 3 )]
+[node name="NotepadPos" type="Node2D" parent="." index="3"]
+
+[node name="PointerManager" type="Node" parent="." index="4"]
+
+script = ExtResource( 3 )
+
+[node name="Player" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 791.43, 545.628 )
+
+[node name="Notepad" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 1300, -630 )
+collision_mask = 9
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Notepad2" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 100.999, 75 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Lixeira" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 1500.87, 75 )
+
+[node name="raizMenuIniciar" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 215, 1439 )
 
-[node name="btnMenuIniciar" type="Button" parent="." index="4"]
+[node name="Toolbar" type="Node" parent="." index="10"]
 
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
+
+position = Vector2( 800.012, 879.408 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
+
+editor/display_folded = true
+position = Vector2( 215, 860 )
+scale = Vector2( 1, 1e-005 )
+input_pickable = false
+collision_layer = 8
+collision_mask = 5
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="0"]
+
+position = Vector2( 585.85, 1.81428e+006 )
+scale = Vector2( 1.08312, -111268 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="1"]
+
+position = Vector2( -232.816, -4.59106e+007 )
+scale = Vector2( 2.17216, 5.0547e+006 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="2"]
+
+position = Vector2( 1406.22, -4.70156e+007 )
+scale = Vector2( 2.17216, 5.0547e+006 )
+shape = SubResource( 4 )
+
+[node name="btnMenuIniciar" type="Button" parent="." index="11"]
+
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -114,62 +184,10 @@ flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Toolbar" type="Node" parent="." index="5"]
+[node name="Notepad3" parent="." index="12" instance=ExtResource( 10 )]
 
-editor/display_folded = true
-
-[node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
-
-position = Vector2( 800.012, 879.408 )
-texture = ExtResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
-
-editor/display_folded = true
-position = Vector2( 215, 860 )
-scale = Vector2( 1, 1e-005 )
-input_pickable = false
-collision_layer = 8
-collision_mask = 5
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="0"]
-
-position = Vector2( 585.85, 1.81428e+006 )
-scale = Vector2( 1.08312, -111268 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="1"]
-
-position = Vector2( -232.816, -4.59106e+007 )
-scale = Vector2( 2.17216, 5.0547e+006 )
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="2"]
-
-position = Vector2( 1406.22, -4.70156e+007 )
-scale = Vector2( 2.17216, 5.0547e+006 )
-shape = SubResource( 3 )
-
-[node name="NotepadPos" type="Node2D" parent="." index="6"]
-
-[node name="Player" parent="." index="7" instance=ExtResource( 5 )]
-
-position = Vector2( 791.43, 545.628 )
-
-[node name="Notepad" parent="." index="8" instance=ExtResource( 6 )]
-
-position = Vector2( 1268.77, -629.239 )
-collision_mask = 9
-
-[node name="Notepad2" parent="." index="9" instance=ExtResource( 7 )]
-
-position = Vector2( 100.999, 80.9987 )
+position = Vector2( 275.237, 75 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [connection signal="input_event" from="BtncCloseIniciar" to="raizMenuIniciar" method="_on_BtncCloseIniciar_input_event"]
 

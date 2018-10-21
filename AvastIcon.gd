@@ -11,5 +11,5 @@ func _ready():
 func _on_Notepad_body_entered(body):
 	if Global.Player.avast:
 		sprite.set_texture(tex)
-		Global.avast = true
+		Global.IconKey = true
 	pass # replace with function body

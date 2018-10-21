@@ -1,17 +1,56 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/xNotepad.gd" type="Script" id=1]
-[ext_resource path="res://Images/xNotepad.png" type="Texture" id=2]
+[ext_resource path="res://Images/xNotepad.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/xNotepad.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 30.746, 27.3563 )
 
-[node name="xNotepad" type="Area2D"]
+[sub_resource type="RectangleShape2D" id=2]
 
-position = Vector2( 0.204185, 0 )
-scale = Vector2( 2.5, 2.5 )
+custom_solver_bias = 0.0
+extents = Vector2( 50.1863, 49.3031 )
+
+[node name="xNotepadRB" type="RigidBody2D"]
+
+position = Vector2( 1300, -200 )
+scale = Vector2( 5, 5 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 8
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.5
+gravity_scale = 5.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[node name="xNotepad" type="Area2D" parent="." index="2"]
+
+position = Vector2( 2.69348, -1.95658 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -20,21 +59,14 @@ angular_damp = 1.0
 collision_layer = 4
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="xNotepad" index="0"]
 
-visible = false
-shape = SubResource( 1 )
+position = Vector2( -3.41785, 3.82687 )
+shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
-texture = ExtResource( 2 )
-
-[connection signal="body_entered" from="." to="." method="_on_xNotepad_body_entered"]
+[connection signal="body_entered" from="xNotepad" to="xNotepad" method="_on_xNotepad_body_entered"]
 
 
