@@ -74,15 +74,6 @@ func hurt():
 func _on_Timer_timeout():
 	hurt = false
 
-
-func pickup_key():
-	var keySprite = _keySprite.instance()
-	add_child(keySprite)
-	key = true
-
-func destroy_key():
-	$xNotepadSprite.queue_free()
-	key = false
 	
 func take_damage(x,y):
 	SPEED = SPEED/2
