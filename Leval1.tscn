@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=1]
-[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Images/Toolbar.png" type="Texture" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://AvastBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Images/Toolbar.png" type="Texture" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=7]
+[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,7 +24,9 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Leval1" type="Node" index="0"]
+[node name="Leval1" type="Node"]
+
+_sections_unfolded = [ "Pause" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -79,7 +85,11 @@ texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="raizMenuIniciar" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Avast" parent="Background/Sprite" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 1025.89, 150.137 )
+
+[node name="raizMenuIniciar" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 215, 1439 )
 
@@ -113,20 +123,20 @@ _sections_unfolded = [ "Visibility" ]
 [node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
 
 position = Vector2( 800.012, 879.408 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
 
 position = Vector2( 215, 860 )
 scale = Vector2( 1, 1e-005 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 16384
+collision_mask = 5
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbar/StaticBody2D" index="0"]
 
@@ -147,7 +157,21 @@ position = Vector2( 1406.22, -4.70156e+007 )
 scale = Vector2( 2.17216, 5.0547e+006 )
 shape = SubResource( 3 )
 
-[node name="Player" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Player" parent="." index="6" instance=ExtResource( 5 )]
+
+[node name="Notepad" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 1478.23, 700.591 )
+
+[node name="Notepad2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 414.587, 178.841 )
+
+[node name="Notepad3" parent="." index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 87.0639, 88.4243 )
+
+position = Vector2( 791.43, 545.628 )
 
 [connection signal="pressed" from="btnAreaDeTrabalho" to="raizMenuIniciar" method="_on_btnAreaDeTrabalho_pressed"]
 

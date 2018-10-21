@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Images/xNotepad.png" type="Texture" id=1]
+
+[node name="xNotepadSprite" type="Node2D"]
+
+position = Vector2( 100, 30 )
+scale = Vector2( 5, 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+
+
