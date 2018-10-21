@@ -73,12 +73,13 @@ func hurt():
 	$Timer.start()
 
 func _on_Timer_timeout():
-	hurt = false
+	#hurt = false
+	pass
 
 	
 func take_damage(x,y):
 	SPEED = SPEED/2
-	
+	hurt()
 	var novoAvastGrudado = preload("res://avastGrudado.tscn").instance()
 	get_node(".").add_child(novoAvastGrudado)
 	novoAvastGrudado.position = Vector2(x,y) - self.position
@@ -87,6 +88,8 @@ func take_damage(x,y):
 func take_damage_off():
 	SPEED = SPEED*2
 	qtdDamage = qtdDamage-1
+	if qtdDamage == 0:
+		Global.Player.hurt = false
 	
 	
 func pickup_key(wichkey):
