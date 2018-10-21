@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="NotepadIcon" type="Area2D"]
+[node name="NotepadIcon" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -33,7 +33,8 @@ __meta__ = {
 
 [node name="doubleClickScene" parent="." index="1" instance=ExtResource( 2 )]
 
-scale = Vector2( 2.5, 2.5 )
+position = Vector2( -1.89613, 1.89612 )
+scale = Vector2( 0.424263, 0.424263 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]

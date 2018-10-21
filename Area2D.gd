@@ -12,8 +12,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
-		if Global.IconKey:
-			print(Global.IconKey)
+		if Global.Player.avast or Global.Player.notepad:
 			Double_Click()
 
 func Double_Click():
@@ -21,18 +20,16 @@ func Double_Click():
 		$Timer.start()
 		time = true 
 	else:
-		print("lalal + ",get_node("../..").name)
-		if get_node("../..").name == "Notepad2":
+		if get_node("../..").name == "Notepad2" and Global.Player.notepad:
 			var _NotePad = NotePad.instance()
 			var _xButton = xButton.instance()
 			get_node("/root/Leval1/NotepadPos").add_child(_NotePad)
 			get_node("/root/Leval1/NotepadPos").add_child(_xButton)
-			Global.IconKey = false
-			print(Global.IconKey)
-		elif get_node("../..").name == "Notepad3":
+			Global.Player.notepad = false
+		elif get_node("../..").name == "Notepad3" and Global.Player.avast:
 			var _Avast = Avast.instance()
 			get_node("/root/Leval1/NotepadPos").add_child(_Avast)
-			Global.IconKey = false
+			Global.Player.avast = false
 
 func _on_Timer_timeout():
 	time = false	

@@ -8,14 +8,13 @@ const KNOCKBACK = -1500
 const JUMP_BOOST = 2
 
 var hurt = false
+var notmoving = false
 var motion = Vector2()
-var key = false
 
 var _keySprite = preload("res://xNotepadSprite.tscn")
 var _notepadSprite = preload ("res://NotepadSprite.tscn")
 var _avastSprite = preload ("res://AvastSprite.tscn")
-
-
+var key = false
 var notepad = false;
 var avast = false;
 
@@ -34,10 +33,11 @@ func _physics_process(delta):
 	player_movement(delta)
 
 func player_movement(delta):
-	fall(delta)
-	run()
-	jump ()
-	move_and_slide(motion,UP)
+	if not Global.Player.notmoving:
+		run()
+		jump ()
+		move_and_slide(motion,UP)
+		fall(delta)
 
 func fall(delta):
 	if is_on_floor():
@@ -53,7 +53,6 @@ func run():
 		motion.x = SPEED
 	elif Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
 		motion.x = -SPEED
-		
 	else: 
 		motion.x = 0
 
@@ -96,17 +95,11 @@ func pickup_key(wichkey):
 	elif wichkey == "notepadicon":
 		var notepadSprite = _notepadSprite.instance()
 		add_child(notepadSprite)
-		notepad = true
-		print(wichkey)
-		print(avast)
-		print(notepad)
+		Global.IconKeyNotepad = true
 	elif wichkey == "avasticon":
 		var avastSprite = _avastSprite.instance()
 		add_child(avastSprite)
-		avast = true
-		print(wichkey)
-		print(avast)
-		print(notepad)
+		Global.IconKeyAvast = true
 
 func destroy_key(wichkey):
 	if wichkey == "xnotepad":
@@ -114,7 +107,9 @@ func destroy_key(wichkey):
 		key = false
 	elif wichkey == "notepadicon":
 		$NotepadSprite.queue_free()
-		notepad = false
+		Global.IconKeyNotepad = false
+		notepad = true
 	elif wichkey == "avasticon":
 		$AvastSprite.queue_free()
-		avast = false
+		Global.IconKeyAvast = false
+		avast = true

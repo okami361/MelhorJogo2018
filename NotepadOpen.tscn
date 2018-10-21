@@ -147,6 +147,10 @@ __meta__ = {
 
 shape = SubResource( 3 )
 
+[connection signal="focus_entered" from="TextEdit" to="." method="_on_TextEdit_focus_entered"]
+
+[connection signal="focus_exited" from="TextEdit" to="." method="_on_TextEdit_focus_exited"]
+
 [connection signal="body_entered" from="xButton" to="xButton" method="_on_xButton_body_entered"]
 
 [connection signal="button_down" from="xButton/CloseButton" to="." method="_on_Button_button_down"]
