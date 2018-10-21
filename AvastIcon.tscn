@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://AvastIcon.gd" type="Script" id=1]
-[ext_resource path="res://doubleClickScene.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Font/Font_Regular.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Font/Font_Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://doubleClickScene.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Notepad" type="Area2D" index="0"]
+[node name="AvastIcon" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -31,19 +31,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="doubleClickScene" parent="." index="1" instance=ExtResource( 2 )]
-
-position = Vector2( -1.08186, 8.84113 )
-scale = Vector2( 0.558385, 0.605619 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 4.13843, 6.31873 )
 scale = Vector2( 5.16411, 5.23117 )
 shape = SubResource( 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -59,11 +53,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 3 )
-custom_fonts/italics_font = ExtResource( 3 )
-custom_fonts/bold_font = ExtResource( 3 )
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/bold_italics_font = ExtResource( 2 )
+custom_fonts/italics_font = ExtResource( 2 )
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "Avast"
@@ -78,6 +72,10 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "custom_colors" ]
 
+[node name="Node2D" parent="." index="3" instance=ExtResource( 3 )]
+
 [connection signal="body_entered" from="." to="." method="_on_Notepad_body_entered"]
+
+[connection signal="input_event" from="." to="." method="_on_AvastIcon_input_event"]
 
 

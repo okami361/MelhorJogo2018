@@ -73,7 +73,6 @@ func pickup_key():
 	var keySprite = _keySprite.instance()
 	add_child(keySprite)
 	key = true
-	print("pegueiiii")
 
 func destroy_key():
 	$xNotepadSprite.queue_free()

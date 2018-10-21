@@ -5,6 +5,8 @@ var blink
 var LetterPlatform = preload("res://LetterPlatform.tscn")
 var Blink = preload("res://Blink.tscn")
 
+var avast = preload("res://AvastBody.tscn")
+
 var textEnabled = false
 
 func _ready():
@@ -69,6 +71,8 @@ func on_text_changed():
 			add_child(new_letter)
 
 func _on_Button_button_down():
+	var _Avast = avast.instance()
+	get_node("/root/Leval1/NotepadPos").add_child(_Avast)
 	queue_free()
 	print("passou")
 
