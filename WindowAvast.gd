@@ -2,7 +2,7 @@ extends Node2D
 
 
 onready var pointerManager = get_node("/root/Leval1/PointerManager")
-onready var countLabel = get_node("ScanButton/CountLabel")
+onready var countLabel = get_node("CountLabel")
 onready var avastAttack = preload("res://avastAttackScene.tscn")
 
 export var count = 30
@@ -22,6 +22,8 @@ func _ready():
 
 func _start_scan():
 	if(!finalizeAttack):
+		$ScanButton.hide()
+		$ButtonDetect.show()
 		get_node("audioAvast").play()
 		countLabel.show()
 		_update_countText()
@@ -39,6 +41,9 @@ func _one_died():
 	_update_countText()
 	if(count == 0):
 		_stop_scan()
+		$ScanButton.hide()
+		$ButtonExit.show()
+		$ButtonDetect.hide()
 		for children in pointerManager.get_children():
 			children.queue_free()
 		finalizeAttack = true
