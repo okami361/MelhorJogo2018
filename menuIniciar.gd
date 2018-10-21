@@ -2,26 +2,6 @@ extends Node2D
 
 var pressionado=false
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-
-
-func _on_btnAreaDeTrabalho_pressed():
-	print("botao area de trabalho")
-	get_node("..").find_node("AnimationPlayer").stop(false)
-	pressionado = false
-	get_node(".").position = Vector2(215,1439)	
-	pass # replace with function body
-
-
 func _on_btnMenuIniciar_pressed():
 	print("botao menu iniciar")
 	if not pressionado :
@@ -33,3 +13,13 @@ func _on_btnMenuIniciar_pressed():
 		get_node(".").position = Vector2(215,1439)	
 	
 	pass
+
+func _on_BtncCloseIniciar_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
+	and event.button_index == BUTTON_LEFT \
+    and event.is_pressed():
+		print("botao area de trabalho")
+		get_node("..").find_node("AnimationPlayer").stop(false)
+		pressionado = false
+		get_node(".").position = Vector2(215,1439)	
+

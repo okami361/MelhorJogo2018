@@ -26,7 +26,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 visible = false

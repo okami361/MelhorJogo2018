@@ -30,6 +30,7 @@ extents = Vector2( 499.977, 157.071 )
 "AvastWindow",
 ]]
 
+position = Vector2( 789.846, 455.217 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 __meta__ = {

@@ -22,8 +22,8 @@ Global="*res://Scripts/Global.gd"
 
 window/size/width=1600
 window/size/height=900
-
-window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -44,6 +44,8 @@ ui_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"",
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="KeyHole"
+2d_physics/layer_3="Key"
+2d_physics/layer_4="Ground"
 
 [rendering]
 

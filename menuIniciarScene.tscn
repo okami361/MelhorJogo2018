@@ -76,8 +76,8 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
 
 input_pickable = false
-collision_layer = 4
-collision_mask = 1
+collision_layer = 8
+collision_mask = 5
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0

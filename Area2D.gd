@@ -1,39 +1,37 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var time
+var NotePad = preload("res://NotepadOpen.tscn")
+var lastClick
+var Avast = preload("res://WindowAvast.tscn")
 
 func _ready():
 	time = false
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-	pass
-
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
     and event.is_pressed():
-		if not time:
-			$Timer.start()
-			time = true 
-			print("click")
-		
-		elif time:
-			print("doubleclick")
-	
-	pass # replace with function body
+		if Global.notepad:
+			Double_Click("notepad")
+		if Global.avast:
+			Double_Click("avast")
 
+func Double_Click(who):
+
+	if not time:
+		$Timer.start()
+		time = true 
+		print("click")
+	elif who == "notepad":
+		var _NotePad = NotePad.instance()
+		print("doubleclick")
+		get_node("/root/Leval1/NotepadPos").add_child(_NotePad)
+		Global.notepad = false
+	elif who == "avast":
+		var _Avast = Avast.instance()
+		get_node("/root/Leval1/NotepadPos").add_child(_Avast)
+		Global.avast = false
 
 func _on_Timer_timeout():
 	time = false	
-	
-	pass # replace with function body

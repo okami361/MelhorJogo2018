@@ -1,26 +1,26 @@
-extends Node2D
+extends Node
 
-export var starting_lives = 3
-export var coins_target = 5 #How many coins for an extra life
+#export var starting_lives = 3
+#export var coins_target = 5 #How many coins for an extra life
 
-var lives
-var coins = 0
+#var lives
+#var coins = 0
 
-onready var GUI = Global.GUI
+#onready var GUI = Global.GUI
 
 func _ready():
 	Global.GameState = self
-	lives = starting_lives
+	#lives = starting_lives
 	#update_GUI()
 
-func hurt():
-	lives -= 1
+#func hurt():
+	#lives -= 1
 	#update_GUI()
-	Global.Player.hurt()
+	#Global.Player.hurt()
 	#animate_GUI("Hurt")
 	#Global.pain_sfx.play()
-	if lives < 0:
-		end_game()
+	#if lives < 0:
+		#end_game()
 
 #func coin_up():
 	#coins += 1
@@ -30,8 +30,8 @@ func hurt():
 	#if multiple_of_coin_target:
 		#life_up()
 
-func life_up():
-	lives += 1
+#func life_up():
+	#lives += 1
 	#update_GUI()
 	#animate_GUI("LifePulse")
 

@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Notepad" type="Area2D" index="0"]
+[node name="Notepad" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -76,7 +76,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "custom_colors" ]
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Notepad_body_entered"]
 

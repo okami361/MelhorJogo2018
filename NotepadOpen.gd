@@ -72,9 +72,9 @@ func _on_Button_button_down():
 	queue_free()
 	print("passou")
 
-func _on_InsideNotepad_button_down(event):
-	print("nos")
-	if (event is InputEventMouseButton \
+
+func _on_InsidePanel_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
-    and event.is_pressed()):
-		print("nos")
+    and event.is_pressed():
+		print("ola")
