@@ -14,6 +14,7 @@ func _ready():
 	initialPosition = position
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	
 	pass
 
 func _shake_camera(mag, time):
