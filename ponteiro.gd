@@ -19,7 +19,7 @@ func _input(event):
     and !event.is_pressed()):
 		if(objeto != null):
 			if(objeto.is_in_group("AvastAttacks") and emCimaLixeira):
-				get_node("..")._one_died()
+				get_node("../WindowAvast")._one_died()
 				objeto.queue_free()
 			
 		objeto = null

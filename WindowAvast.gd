@@ -1,6 +1,13 @@
 extends Node2D
 
+<<<<<<< HEAD
 onready var pointerManager = get_node("PointerManager")
+=======
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+onready var pointerManager = get_node("/root/Leval1/PointerManager")
+>>>>>>> 067d82ae1c266ef783c955ed956ccaec51714138
 onready var countLabel = get_node("ScanButton/CountLabel")
 onready var avastAttack = preload("res://avastAttackScene.tscn")
 export var count = 30
