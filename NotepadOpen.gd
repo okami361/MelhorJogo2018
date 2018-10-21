@@ -1,14 +1,11 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var letters = []
 var blink
-
 var LetterPlatform = preload("res://LetterPlatform.tscn")
 var Blink = preload("res://Blink.tscn")
+
+var textEnabled = false
 
 func _ready():
 	$TextEdit.connect("cursor_changed", self, "on_cursor_changed")
@@ -32,7 +29,7 @@ func _blink_instace():
 func on_cursor_changed():
 	print("",$TextEdit.cursor_get_column())
 	print("",$TextEdit.cursor_get_line())
-	blink.position = Vector2($TextEdit.cursor_get_column() * 20 + 15, $TextEdit.cursor_get_line() * 55 + 80)
+	blink.position = Vector2($TextEdit.cursor_get_column() * 20 + 8, $TextEdit.cursor_get_line() * 55 + 80)
 	if $TextEdit.cursor_get_column() >= 53:
 		if  $TextEdit.cursor_get_line() <= 9:
 			$TextEdit.insert_text_at_cursor("\n")
@@ -70,7 +67,14 @@ func on_text_changed():
 			start += Vector2(20,0)
 			letters.push_back(new_letter)
 			add_child(new_letter)
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+
+func _on_Button_button_down():
+	queue_free()
+	print("passou")
+
+func _on_InsideNotepad_button_down(event):
+	print("nos")
+	if (event is InputEventMouseButton \
+	and event.button_index == BUTTON_LEFT \
+    and event.is_pressed()):
+		print("nos")

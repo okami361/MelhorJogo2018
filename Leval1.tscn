@@ -26,6 +26,8 @@ extents = Vector2( 10, 10 )
 
 [node name="Leval1" type="Node"]
 
+_sections_unfolded = [ "Pause" ]
+
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
 anchor_mode = 0
@@ -168,6 +170,8 @@ position = Vector2( 414.587, 178.841 )
 [node name="Notepad3" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 87.0639, 88.4243 )
+
+position = Vector2( 791.43, 545.628 )
 
 [connection signal="pressed" from="btnAreaDeTrabalho" to="raizMenuIniciar" method="_on_btnAreaDeTrabalho_pressed"]
 
