@@ -12,6 +12,10 @@ var motion = Vector2()
 var key = false
 var _keySprite = preload("res://xNotepadSprite.tscn")
 
+var notepad = false;
+var avast = false;
+
+
 func _ready():
 	Global.Player = self
 
