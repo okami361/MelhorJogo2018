@@ -118,10 +118,10 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Sprite3/Timer" to="Sprite3" method="_on_Timer_timeout"]
 
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="Sprite" method="_on_Button_pressed"]
 
 [connection signal="pressed" from="Button" to="Sprite3" method="_on_Button_pressed"]
 
-[connection signal="pressed" from="Button" to="Sprite" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
 
 

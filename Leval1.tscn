@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Scripts/GameState.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background.jpg" type="Texture" id=2]
-[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://NotepadIcon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lixeira.tscn" type="PackedScene" id=5]
-[ext_resource path="res://AvastIcon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ponteiro.gd" type="Script" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ponteiro.gd" type="Script" id=8]
+[ext_resource path="res://NotepadBody.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menuIniciarScene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Images/Toolbar.png" type="Texture" id=10]
 
@@ -31,7 +31,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Leval1" type="Node"]
+[node name="Leval1" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -72,6 +72,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="BtncCloseIniciar" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 796, 440 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -87,35 +88,33 @@ visible = false
 position = Vector2( 3.59241, -4.78992 )
 shape = SubResource( 1 )
 
-[node name="Notepad" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Notepad3" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 1300, -630 )
-collision_mask = 9
-_sections_unfolded = [ "Collision", "Transform" ]
+position = Vector2( 275.237, 75.9512 )
 
 [node name="Notepad2" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 100.999, 75 )
-_sections_unfolded = [ "Collision", "Transform" ]
+position = Vector2( 100.999, 80.9987 )
 
 [node name="Lixeira" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 1515.94, 775.916 )
+position = Vector2( 1500.87, 86.7514 )
 
-[node name="Notepad3" parent="." index="6" instance=ExtResource( 6 )]
+[node name="NotepadPos" type="Node2D" parent="." index="6"]
 
-position = Vector2( 275.237, 75 )
-_sections_unfolded = [ "Collision", "Transform" ]
+[node name="PointerManager" type="Node" parent="." index="7"]
 
-[node name="NotepadPos" type="Node2D" parent="." index="7"]
+script = ExtResource( 6 )
 
 [node name="Player" parent="." index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 791.43, 545.628 )
 
-[node name="PointerManager" type="Node" parent="." index="9"]
+[node name="Notepad" parent="." index="9" instance=ExtResource( 8 )]
 
-script = ExtResource( 8 )
+position = Vector2( 1300, -630 )
+collision_mask = 9
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="raizMenuIniciar" parent="." index="10" instance=ExtResource( 9 )]
 
@@ -123,11 +122,12 @@ position = Vector2( 215, 1439 )
 
 [node name="Toolbar" type="Node" parent="." index="11"]
 
+editor/display_folded = true
+
 [node name="Sprite" type="Sprite" parent="Toolbar" index="0"]
 
-position = Vector2( 800, 880 )
+position = Vector2( 800.012, 879.408 )
 texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Toolbar" index="1"]
 

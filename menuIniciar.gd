@@ -20,7 +20,9 @@ func _on_BtncCloseIniciar_input_event(viewport, event, shape_idx):
     and event.is_pressed():
 		get_node("..").find_node("AnimationPlayer").stop(false)
 		pressionado = false
-		get_node(".").position = Vector2(215,1439)	
+		get_node(".").position = Vector2(215,1439)
+		#using this to make the player moves when clicking outside the notepad
+		Global.Player.notmoving = false
 
 
 

@@ -3,11 +3,13 @@ extends Node
 #Nodes - set automatically
 var GameState
 var Player
-var IconKey = false
 
 var turnoffNotepad = false
 var turnoffAvast = false
 var turnoffDilma = false
+
+var IconKeyNotepad = false
+var IconKeyAvast = false
 
 
 #var GUI
