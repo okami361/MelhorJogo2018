@@ -24,3 +24,8 @@ func _on_BtncCloseIniciar_input_event(viewport, event, shape_idx):
 		#using this to make the player moves when clicking outside the notepad
 		Global.Player.notmoving = false
 
+
+
+func _on_Turnoff_pressed():
+	get_tree().change_scene("res://sair//sairScene.tscn");
+	pass # replace with function body

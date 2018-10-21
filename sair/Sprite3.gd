@@ -22,6 +22,7 @@ func _on_Button_pressed():
 
 func _on_Timer_timeout():
 	get_node("..").find_node("Button2").disabled=false
-	get_node("../AudioError").play()
+	if (!Global.turnoffDilma):
+		get_node("../AudioError").play()
 	queue_free()
 	pass # replace with function body
