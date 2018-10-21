@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AvastIcon.gd" type="Script" id=1]
-[ext_resource path="res://Font/Font_Regular.tres" type="DynamicFont" id=2]
-[ext_resource path="res://doubleClickScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://doubleClickScene.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="AvastIcon" type="Area2D"]
+[sub_resource type="DynamicFontData" id=2]
+
+hinting = 2
+font_path = "res://Font/OpenSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="AvastIcon" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -24,8 +36,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -1.19165, 7.54709 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.3, 0.3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -33,9 +44,9 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 4.13843, 6.31873 )
-scale = Vector2( 5.16411, 5.23117 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." index="2"]
 
@@ -43,21 +54,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -44.0
-margin_top = 86.0
-margin_right = 140.0
-margin_bottom = 142.0
+margin_left = -26.0
+margin_top = 45.0
+margin_right = 158.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/mono_font = ExtResource( 2 )
-custom_fonts/bold_italics_font = ExtResource( 2 )
-custom_fonts/italics_font = ExtResource( 2 )
-custom_fonts/bold_font = ExtResource( 2 )
-custom_fonts/normal_font = ExtResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "Avast"
@@ -70,9 +77,12 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "custom_colors" ]
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Node2D" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Node2D" parent="." index="3" instance=ExtResource( 2 )]
+
+scale = Vector2( 1.5, 1.5 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Notepad_body_entered"]
 

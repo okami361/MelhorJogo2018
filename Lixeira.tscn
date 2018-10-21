@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 131.872, 133.365 )
 
-[node name="Lixeira" type="Area2D"]
+[node name="Lixeira" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -20,23 +20,23 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -1.20695, -7.59556 )
-scale = Vector2( 0.522936, 0.522936 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CursorDetect" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -4.6751, -3.41306 )
-scale = Vector2( 0.521529, 0.521529 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Node2D" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( -1.62091, -1.90013 )
-scale = Vector2( 0.536728, 0.536728 )
+scale = Vector2( 1.5, 1.5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." index="3"]
@@ -45,10 +45,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -56.0
-margin_top = 64.0
-margin_right = 87.0
-margin_bottom = 125.0
+margin_left = -29.0
+margin_top = 45.0
+margin_right = 114.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -67,7 +67,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [connection signal="mouse_entered" from="." to="." method="_on_Lixeira_mouse_entered"]
 

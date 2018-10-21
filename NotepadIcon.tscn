@@ -25,7 +25,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( -1.19165, 7.54709 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.3, 0.3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -33,15 +33,14 @@ __meta__ = {
 
 [node name="doubleClickScene" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( -1.08186, 8.84113 )
-scale = Vector2( 0.558385, 0.605619 )
+scale = Vector2( 1.5, 1.5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 4.13843, 6.31873 )
-scale = Vector2( 5.16411, 5.23117 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." index="3"]
 
@@ -49,10 +48,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -67.0
-margin_top = 83.0
-margin_right = 117.0
-margin_bottom = 139.0
+margin_left = -38.0
+margin_top = 45.0
+margin_right = 121.0
+margin_bottom = 93.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -76,7 +75,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Notepad_body_entered"]
 

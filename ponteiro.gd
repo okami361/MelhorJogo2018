@@ -19,13 +19,13 @@ func _input(event):
     and !event.is_pressed()):
 		if(objeto != null):
 			if(objeto.is_in_group("AvastAttacks") and emCimaLixeira):
-				get_node("../WindowAvast")._one_died()
+				get_node("../NotepadPos/WindowAvast")._one_died()
 				objeto.queue_free()
 			
 		objeto = null
 		segurando = false
 	elif event is InputEventMouseMotion:
-		if(segurando):
+		if(segurando and objeto!=null):
 			objeto.position = event.position
 			print(objeto)
 			if (objeto.is_in_group("AvastWindow")):

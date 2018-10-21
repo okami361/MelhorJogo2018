@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Images/avastIcone.png" type="Texture" id=1]
-[ext_resource path="res://doubleClickScene.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.68844, 5.70636 )
 
-[node name="Avast" type="RigidBody2D"]
+[node name="Avast" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -31,15 +30,11 @@ angular_damp = -1.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="doubleClickScene" parent="." index="1" instance=ExtResource( 2 )]
-
-position = Vector2( 0.814453, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( -0.619951, 0.0734849 )
 scale = Vector2( 9.02334, 8.79538 )
