@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://WindowAvast.gd" type="Script" id=1]
 [ext_resource path="res://Images/WindowAvast.png" type="Texture" id=2]
@@ -7,7 +7,17 @@
 [ext_resource path="res://Images/BotaoHover.png" type="Texture" id=5]
 [ext_resource path="res://ScanButton.gd" type="Script" id=6]
 [ext_resource path="res://ponteiro.gd" type="Script" id=7]
-[ext_resource path="res://Sounds/avast-ameaca-detectada.wav" type="AudioStream" id=8]
+[ext_resource path="res://Images/Exit.png" type="Texture" id=8]
+[ext_resource path="res://Images/ExitPressed.png" type="Texture" id=9]
+[ext_resource path="res://Images/Exit_hover.png" type="Texture" id=10]
+[ext_resource path="res://ButtonExit.gd" type="Script" id=11]
+[ext_resource path="res://Sounds/avast-ameaca-detectada.wav" type="AudioStream" id=12]
+[ext_resource path="res://Images/ButtonDetected.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 499.977, 157.071 )
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -22,16 +32,11 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 499.977, 157.071 )
-
-[node name="WindowAvast" type="Node2D" groups=[
+[node name="WindowAvast" type="Node2D" index="0" groups=[
 "AvastWindow",
 ]]
 
-position = Vector2( 789.846, 455.217 )
+position = Vector2( 777.846, 450.217 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 __meta__ = {
@@ -76,38 +81,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CountLabel" type="Label" parent="ScanButton" index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -110.0
-margin_top = 249.0
-margin_right = 458.0
-margin_bottom = 481.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.210938, 0, 0, 1 )
-custom_constants/shadow_offset_x = 5
-custom_constants/shadow_offset_y = 5
-text = "Count Enemys: 0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Visibility", "custom_colors", "custom_constants", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Area2D" type="Area2D" parent="ScanButton" index="1"]
+[node name="Area2D" type="Area2D" parent="ScanButton" index="0"]
 
 position = Vector2( 161.21, -257.461 )
 input_pickable = true
@@ -131,17 +105,109 @@ shape = SubResource( 3 )
 
 script = ExtResource( 7 )
 
-[node name="audioAvast" type="AudioStreamPlayer" parent="." index="3"]
+[node name="ButtonExit" type="TextureButton" parent="." index="3"]
 
-stream = ExtResource( 8 )
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -164.0
+margin_top = -56.0
+margin_right = 158.0
+margin_bottom = 59.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+script = ExtResource( 11 )
+_sections_unfolded = [ "Material", "Textures", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="audioAvast" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="CountLabel" type="Label" parent="." index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -275.0
+margin_top = 192.0
+margin_right = 293.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.210938, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Count Enemys: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_constants", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ButtonDetect" type="TextureButton" parent="." index="6"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -165.0
+margin_top = -58.0
+margin_right = 159.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 13 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="pressed" from="ScanButton" to="ScanButton" method="_on_ScanButton_pressed"]
 
 [connection signal="input_event" from="ScanButton/Area2D" to="." method="_on_Area2D_input_event"]
+
+[connection signal="pressed" from="ButtonExit" to="ButtonExit" method="_on_ButtonExit_pressed"]
 
 
